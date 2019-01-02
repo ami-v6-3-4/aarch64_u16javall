@@ -4,8 +4,6 @@ language: java
 jdk:
   - openjdk7
   - openjdk8
-  - openjdk10
-  - openjdk11
   - oraclejdk8
 
 runtime:
@@ -14,7 +12,7 @@ runtime:
 build:
   pre_ci_boot:
     image_name: drydock/aarch64_u16javall
-    image_tag: master
+    image_tag: v6.3.4
     pull: true
     
   ci:
@@ -24,11 +22,3 @@ build:
     - mvn --version    
     - ant -version 
     - gradle --version
-    - docker pull shippabledocker/sample_node_pvt:ecr
-    
-integrations:
-    
-  hub:
- #Docker integration
-    - integrationName: ship-docker
-      type: dockerRegistryLogin
